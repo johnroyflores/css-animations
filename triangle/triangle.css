@@ -1,0 +1,50 @@
+@border: 20 px;
+@maincolor: white;
+@time: .8 s;
+
+// the preloader
+.round - loader {
+    @square: @border * 5;
+
+    position: absolute;
+    top: 50 % ;
+    left: 50 % ;
+    transform: translate(-50 % , -50 % );
+    width: @square;
+    height: @square;
+    border - radius: 50 % ;
+    border: @border solid @maincolor;
+    box - shadow: rgba(0, 0, 0, .5) 0 0 @border / 2,
+    inset rgba(0, 0, 0, .5) 0 0 @border / 2;
+
+    & : after {
+        content: "";
+        position: absolute;
+        top: -1 px;
+        left: -1 px;
+        width: @square + 2;
+        height: @square + 2;
+        border - radius: 50 % ;
+        background - color: @maincolor; - webkit - transform: scaleX(0) scaleY(1); - webkit - transform - origin: center right; - webkit - animation: giraquegira @time infinite;
+    }
+}
+
+@ - webkit - keyframes giraquegira {
+    0 % {-webkit - transform: scaleX(0) scaleY(1); - webkit - transform - origin: center right;
+    }
+    49 % {-webkit - transform: scaleX(1) scaleY(1); - webkit - transform - origin: center right;
+    }
+    50 % {-webkit - transform: scaleX(1) scaleY(1); - webkit - transform - origin: center left;
+    }
+    100 % {-webkit - transform: scaleX(0) scaleY(1); - webkit - transform - origin: center left;
+    }
+}
+
+
+// the rest
+html, body { height: 100 % ; }
+body {
+    @bgcolor: #d35400;
+    background: @bgcolor;
+    background: radial - gradient(ellipse at center, lighten(@bgcolor, 30 % ) 0 % , @bgcolor 80 % );
+}
